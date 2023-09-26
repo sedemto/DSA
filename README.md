@@ -1,2 +1,2 @@
 # DSA
-pouzit pre inspiraciu!
+#pouzit pre inspiraciu!

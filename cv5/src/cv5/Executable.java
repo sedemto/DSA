@@ -12,6 +12,7 @@ public class Executable {
 		strom.add(6);
 		strom.add(16);
 		strom.add(10);
+		strom.add(13);
 		
 		System.out.println(strom.contains(51));
 		System.out.println(strom.contains(1));
@@ -22,6 +23,8 @@ public class Executable {
 		strom.printPostOrder();
 		System.out.println();
 		strom.printListy();
+		System.out.println();
+		strom.findD();
 		//strom.print();
 	}
 

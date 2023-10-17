@@ -2,22 +2,22 @@ package cv5;
 
 public class Tree {
 	private TreeNode root;
+	private TreeNode deepest = new TreeNode(0,0);
 	
-	
-	private TreeNode addTreeNode(TreeNode current,int data) {
+	private TreeNode addTreeNode(TreeNode current,int data, int depth) {
 		if(current == null)
-			return new TreeNode(data);
+			return new TreeNode(data,depth);
 		if(data > current.getData()) {
-			current.setRight(addTreeNode(current.getRight(),data));
+			current.setRight(addTreeNode(current.getRight(),data,depth+1));
 		}
 		else if(data < current.getData()) {
-			current.setLeft(addTreeNode(current.getLeft(),data));
+			current.setLeft(addTreeNode(current.getLeft(),data,depth+1));
 		}
 		return current;
 		
 	}
 	public void add(int data) {
-		this.root = addTreeNode(root,data);
+		this.root = addTreeNode(root,data,0);
 	}
 
 	
@@ -89,4 +89,21 @@ public class Tree {
 	public void printListy() {
 		printLeaves(root);
 	}
+	
+	
+	private void findDeepest(TreeNode current) {
+		if(current != null) {
+			if(deepest.depth < current.depth) {
+				deepest = current;
+			}
+			findDeepest(current.getLeft());
+			findDeepest(current.getRight());
+		}
+	}
+	public void findD() {
+		findDeepest(root);
+		System.out.print(deepest.getData());
+	}
+	
+	
 }

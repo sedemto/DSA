@@ -44,15 +44,49 @@ public class Tree {
 	
 	
 	
-	private void printTree(TreeNode current) {
+	private void printTreePreOrder(TreeNode current) {
 		if(current != null) {
 			System.out.print(current.getData()+" ");
-			printTree(current.getLeft());
-			printTree(current.getRight());
+			printTreePreOrder(current.getLeft());
+			printTreePreOrder(current.getRight());
 		}
 	}
-	public void print() {
-		printTree(root);
+	private void printTreeInOrder(TreeNode current) {
+		if(current != null) {
+			printTreeInOrder(current.getLeft());
+			System.out.print(current.getData()+" ");
+			printTreeInOrder(current.getRight());
+		}
 	}
+	private void printTreePostOrder(TreeNode current) {
+		if(current != null) {
+			printTreePostOrder(current.getLeft());
+			printTreePostOrder(current.getRight());
+			System.out.print(current.getData()+" ");
+		}
+	}
+	
+	public void printPreOrder() {
+		printTreePreOrder(root);
+	}
+	public void printInOrder() {
+		printTreeInOrder(root);
+	}
+	public void printPostOrder() {
+		printTreePostOrder(root);
+	}
+	
+	
+	private void printLeaves(TreeNode current) {
 
+		if(current != null) {
+			if(current.getLeft() == null && current.getRight() == null)
+				System.out.print(current.getData()+" ");
+			printLeaves(current.getLeft());
+			printLeaves(current.getRight());
+		}
+	}
+	public void printListy() {
+		printLeaves(root);
+	}
 }

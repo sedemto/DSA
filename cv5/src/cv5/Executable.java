@@ -14,8 +14,14 @@ public class Executable {
 		strom.add(10);
 		
 		System.out.println(strom.contains(51));
-		strom.print();
-		
+		System.out.println(strom.contains(1));
+		strom.printPreOrder();
+		System.out.println();
+		strom.printInOrder();
+		System.out.println();
+		strom.printPostOrder();
+		System.out.println();
+		strom.printListy();
 		//strom.print();
 	}
 
